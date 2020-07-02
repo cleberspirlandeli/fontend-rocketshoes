@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
     display: flex;
     justify-content: space-between;
-    align-itens: center;
+    align-items: center;
     margin: 50px 0px;
 `;
 
 export const Cart = styled(Link)`
     display: flex;
-    align-itens: center;
+    align-items: center;
     text-decoration: none;
     transition: opacity 0.2s;
 
