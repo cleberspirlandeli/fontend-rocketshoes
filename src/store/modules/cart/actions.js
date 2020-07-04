@@ -21,9 +21,17 @@ export function removeTocart(product) {
     };
 }
 
-export function updateAmount(id, amount) {
+export function updateAmountRequest(id, amount) {
     return {
-        type: types.UPDATE_AMOUNT_TO_CART,
+        type: types.UPDATE_AMOUNT_TO_CART_REQUEST,
+        id,
+        amount,
+    };
+}
+
+export function updateAmountSuccess(id, amount) {
+    return {
+        type: types.UPDATE_AMOUNT_TO_CART_SUCCESS,
         id,
         amount,
     };
