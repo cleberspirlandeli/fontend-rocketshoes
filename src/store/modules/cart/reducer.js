@@ -2,8 +2,6 @@ import * as types from './actionTypes';
 import produce from 'immer';
 
 export default function cart(state = [], action) {
-    console.log(action);
-
     switch (action.type) {
         case types.ADD_TO_CART_SUCCESS:
             return produce(state, (draft) => {
