@@ -5,7 +5,7 @@ export default function cart(state = [], action) {
     console.log(action);
 
     switch (action.type) {
-        case types.ADD_TO_CART:
+        case types.ADD_TO_CART_SUCCESS:
             return produce(state, (draft) => {
                 const productIndex = draft.findIndex(
                     (p) => p.id == action.product.id

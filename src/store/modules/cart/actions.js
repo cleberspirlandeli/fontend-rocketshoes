@@ -1,8 +1,15 @@
 import * as types from './actionTypes';
 
-export function addToCart(product) {
+export function addToCartRequest(id) {
     return {
-        type: types.ADD_TO_CART,
+        type: types.ADD_TO_CART_REQUEST,
+        id,
+    };
+}
+
+export function addToCartSuccess(product) {
+    return {
+        type: types.ADD_TO_CART_SUCCESS,
         product,
     };
 }
