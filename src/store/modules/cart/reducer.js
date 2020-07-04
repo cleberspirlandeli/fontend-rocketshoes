@@ -1,10 +1,11 @@
+import * as types from './actionTypes';
 import produce from 'immer';
 
 export default function cart(state = [], action) {
     console.log(action);
 
     switch (action.type) {
-        case 'ADD_TO_CART':
+        case types.ADD_TO_CART:
             return produce(state, (draft) => {
                 const productIndex = draft.findIndex(
                     (p) => p.id == action.product.id
@@ -20,7 +21,7 @@ export default function cart(state = [], action) {
                 }
             });
 
-        case 'REMOVE_FROM_CART':
+        case types.REMOVE_TO_CART:
             return produce(state, (draft) => {
                 const productIndex = draft.findIndex((p) => p.id == action.id);
 
@@ -29,6 +30,19 @@ export default function cart(state = [], action) {
                 }
             });
 
+        case types.UPDATE_AMOUNT_TO_CART: {
+            if (action.amount < 1) {
+                return state;
+            }
+
+            return produce(state, (draft) => {
+                const productIndex = draft.findIndex((p) => p.id == action.id);
+
+                if (productIndex >= 0) {
+                    draft[productIndex].amount = Number(action.amount);
+                }
+            });
+        }
         default:
             return state;
     }
