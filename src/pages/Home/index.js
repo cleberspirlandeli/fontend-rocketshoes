@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdShoppingCart } from 'react-icons/md';
 import { useSelector, useDispatch } from 'react-redux';
+import Loader from 'react-loader-spinner';
 
 import { ProductList } from './styles';
 import api from './../../services/api';
@@ -16,6 +17,9 @@ export default function Home() {
             return sumAmount;
         }, {})
     );
+    const loading = useSelector((state) => state.loading);
+    const { isLoading } = loading;
+    console.log('x', loading, isLoading);
 
     useEffect(() => {
         async function loadProducts() {
@@ -53,7 +57,8 @@ export default function Home() {
                             {amount[product.id] || 0}
                         </div>
 
-                        <span>Adicionar ao carrinho</span>
+                        {!isLoading && <span>Adicionar ao carrinho</span>}
+                        {isLoading && <span>Aguarde...</span>}
                     </button>
                 </li>
             ))}

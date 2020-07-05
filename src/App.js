@@ -5,9 +5,9 @@ import { ToastContainer } from 'react-toastify';
 
 import GlobalStyle from './styles/global';
 import Header from './components/Header';
+import Loading from './components/Loading';
 import Routes from './routes';
 
-import history from './services/history';
 import store from './store';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
                 <GlobalStyle />
                 <ToastContainer autoClose={5500} limit={2} />
             </BrowserRouter>
+            <Loading />
         </Provider>
     );
 }
